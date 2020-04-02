@@ -72,7 +72,7 @@ var $carouse=(function lbt() {
             $('#slider').animate({ left: '+=' + 1200 }, 1000, function () {
                 $('#slider').css('left', -1200 * imgNum);
             })
-            roll(imgNum - 1);//此时显示的是第五张图片，他的索引值是imgNum-1=4
+            roll(imgNum - 1);
             imgId = imgNum - 1;
         }
         else {
