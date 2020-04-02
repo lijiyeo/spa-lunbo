@@ -24,14 +24,14 @@ var $carouse=(function lbt() {
         imgNum = img.length - 2;
 
     var navs = document.getElementById('navs').children;
-    function navsActive(idx) {
+    function roll(idx) {
         for (var i = 0; i < navs.length; i++) {
             navs[i].removeAttribute("class", "active");
         }
         navs[idx].setAttribute("class", "active");
     }
-    navsActive(0);
-
+    roll(0);
+    var imgId = 0;
     for (var i = 0; i < imgNum; i++) {
         (function (j) {
             navs[j].onclick = function () {
@@ -44,13 +44,11 @@ var $carouse=(function lbt() {
                 else {
                     return true;
                 }
-                navsActive(j);
+                roll(j);
                 imgId = j;
             }
         })(i)
     }
-
-    var imgId = 0;
 
     var timer = setInterval(nextPage, 2000);
 
@@ -74,12 +72,12 @@ var $carouse=(function lbt() {
             $('#slider').animate({ left: '+=' + 1200 }, 1000, function () {
                 $('#slider').css('left', -1200 * imgNum);
             })
-            navsActive(imgNum - 1);//此时显示的是第五张图片，他的索引值是imgNum-1=4
+            roll(imgNum - 1);//此时显示的是第五张图片，他的索引值是imgNum-1=4
             imgId = imgNum - 1;
         }
         else {
             $('#slider').animate({ left: '+=' + 1200 }, 1000);
-            navsActive(imgId - 1);
+            roll(imgId - 1);
             imgId--;
         }
     }
@@ -89,12 +87,12 @@ var $carouse=(function lbt() {
             $('#slider').animate({ left: '-=' + 1200 }, 1000, function () {
                 $('#slider').css('left', -1200);
             })
-            navsActive(0);
+            roll(0);
             imgId = 0;
         }
         else {
             $('#slider').animate({ left: '-=' + 1200 }, 1000);
-            navsActive(imgId + 1);
+            roll(imgId + 1);
             imgId++;
         }
     }
