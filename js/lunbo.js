@@ -1,4 +1,4 @@
-(function () {
+var $carouse=(function lbt() {
     var body = '<div class="slider" id="slider">'
         + '<div class="slide"><img src="img/b5.png" alt=""></div>'
         + '<div class="slide"><img src="img/b1.png" alt=""></div>'
@@ -49,7 +49,7 @@
             }
         })(i)
     }
-    
+
     var imgId = 0;
 
     var timer = setInterval(nextPage, 2000);
